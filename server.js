@@ -1,5 +1,5 @@
 const fastify = require("fastify")({ logger: true });
-const port = 3000;
+const port = 4000;
 
 const timeFunc = (number) => {
   switch (number) {
