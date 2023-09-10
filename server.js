@@ -1,6 +1,8 @@
+require("dotenv/config");
 const fastify = require("fastify")({ logger: true });
-const port = 4000;
-const host = "0.0.0.0";
+const port = 3000;
+const host =
+  process.env.NODE_ENVIRONMENT == "Production" ? "0.0.0.0" : "localhost";
 
 const timeFunc = (number) => {
   switch (number) {
@@ -60,7 +62,7 @@ fastify.get("/api", async (req, reply) => {
 
 const start = async () => {
   try {
-    fastify.listen({ port , host});
+    fastify.listen({ port, host });
   } catch (error) {
     fastify.log.error(error);
     process.exit(1);
