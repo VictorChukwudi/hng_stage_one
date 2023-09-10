@@ -46,7 +46,7 @@ fastify.get("/api", async (req, reply) => {
       reply.code(200).send({
         slack_name,
         current_day: timeFunc(d.getDay()),
-        utc_time: d.toISOString(),
+        utc_time: `${d.toISOString().split(".")[0]}Z`,
         track,
         github_file_url,
         github_repo_url,
