@@ -1,5 +1,6 @@
 const fastify = require("fastify")({ logger: true });
 const port = 4000;
+const host = "0.0.0.0";
 
 const timeFunc = (number) => {
   switch (number) {
@@ -59,7 +60,7 @@ fastify.get("/api", async (req, reply) => {
 
 const start = async () => {
   try {
-    fastify.listen({ port });
+    fastify.listen({ port , host});
   } catch (error) {
     fastify.log.error(error);
     process.exit(1);
