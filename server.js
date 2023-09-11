@@ -1,8 +1,7 @@
-require("dotenv/config");
+require("dotenv").config();
 const fastify = require("fastify")({ logger: true });
 const port = 3000;
-const host =
-  process.env.NODE_ENVIRONMENT == "Production" ? "0.0.0.0" : "localhost";
+const host = "RENDER" in process.env ? `0.0.0.0` : `localhost`;
 
 const timeFunc = (number) => {
   switch (number) {
